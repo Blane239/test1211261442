@@ -1,0 +1,295 @@
+/* Типографика, интерактивные состояния и появление блоков. */
+h1, h2, h3 { text-wrap: balance; }
+h2 { line-height: 1.16; }
+h3 { line-height: 1.22; }
+.hero .button.light, .callout .button.light, .start .button.light {
+  transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+}
+.hero .button.light:hover, .callout .button.light:hover, .start .button.light:hover,
+.hero .button.light:focus-visible, .callout .button.light:focus-visible, .start .button.light:focus-visible {
+  background: #437cff;
+  color: #fff;
+}
+.idea-art > b, .idea-art > span {
+  transition: translate 280ms ease-out;
+  will-change: translate;
+}
+.idea-art > b { translate: calc(var(--idea-x, 0) * 7px) calc(var(--idea-y, 0) * 7px); }
+.idea-art > span:nth-child(1) { translate: calc(var(--idea-x, 0) * -11px) calc(var(--idea-y, 0) * -8px); }
+.idea-art > span:nth-child(2) { translate: calc(var(--idea-x, 0) * 13px) calc(var(--idea-y, 0) * -10px); }
+.idea-art > span:nth-child(3) { translate: calc(var(--idea-x, 0) * -8px) calc(var(--idea-y, 0) * 12px); }
+.reveal-pending {
+  opacity: 0;
+  translate: 0 22px;
+  transition: opacity 550ms ease, translate 550ms cubic-bezier(.2,.65,.3,1);
+}
+.reveal-pending.is-visible { opacity: 1; translate: 0 0; }
+
+@media (max-width: 760px) {
+  h1 br, h2 br, h3 br { display: none; }
+  .hero h1 {
+    font-size: clamp(36px, 10.4vw, 48px);
+    line-height: 1.12;
+    letter-spacing: -1.3px;
+    max-width: 13ch;
+  }
+  h2, .callout h2, .start h2, .author h2 {
+    font-size: clamp(28px, 7.8vw, 36px);
+    line-height: 1.18;
+    letter-spacing: -.7px;
+  }
+  h3, .stage h3, .result-card h3, .wide h3 {
+    font-size: clamp(23px, 6.3vw, 28px);
+    line-height: 1.23;
+    letter-spacing: -.4px;
+  }
+  .hero-intro { font-size: 21px; line-height: 1.4; letter-spacing: -.2px; }
+  .lead, .card p, .stage p, .result-card p, .callout p, .start p, .author p, .faq p {
+    line-height: 1.6;
+    text-wrap: pretty;
+  }
+  .module summary {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr) 20px;
+    column-gap: 10px;
+    row-gap: 8px;
+    align-items: start;
+    padding: 20px 16px;
+  }
+  .module-number { grid-column: 1; grid-row: 1; padding-top: 4px; }
+  .module-name { grid-column: 2; grid-row: 1; font-size: 18px; line-height: 1.3; letter-spacing: -.2px; text-wrap: balance; }
+  .module .pill { grid-column: 2; grid-row: 2; justify-self: start; margin: 0; white-space: normal; line-height: 1.4; }
+  .module summary:after { grid-column: 3; grid-row: 1 / 3; align-self: center; }
+  .faq summary { line-height: 1.4; gap: 16px; }
+  .program-footer { flex-wrap: wrap; line-height: 1.5; }
+  .author h2 { max-width: 18ch; }
+  .hero .tags { gap: 6px; }
+  .hero .tags span { line-height: 1.4; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pending { opacity: 1; translate: none; transition: none; }
+  .idea-art > b, .idea-art > span { translate: none; transition: none; will-change: auto; }
+}
+
+/* Оснащение мастерской. */
+.equipment-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.equipment-subtitle { margin: 36px 0 18px; font-size: 24px; }
+.equipment-card { min-width: 0; min-height: 230px; display: flex; flex-direction: column; align-items: flex-start; }
+.equipment-card h3 { margin: 22px 0 14px; max-width: 25ch; }
+.equipment-card p { max-width: 48ch; line-height: 1.6; }
+.equipment-count { font-size: 62px; line-height: 1; letter-spacing: -3px; color: #437cff; }
+.equipment-tag { display: inline-block; color: #437cff; font-size: 11px; letter-spacing: .8px; line-height: 1.5; }
+.equipment-note { margin-top: 20px; max-width: 80ch; }
+
+/* Непрерывное независимое плавание элементов, без участия курсора. */
+.idea-art > b { animation: idea-core-float 7s ease-in-out infinite; }
+.idea-art > span:nth-child(1) { animation: idea-label-a 6s ease-in-out infinite; }
+.idea-art > span:nth-child(2) { animation: idea-label-b 8s ease-in-out infinite; }
+.idea-art > span:nth-child(3) { animation: idea-label-c 7.5s ease-in-out infinite; }
+@keyframes idea-core-float { 0%,100% { translate: 0 0; } 50% { translate: 5px -9px; } }
+@keyframes idea-label-a { 0%,100% { translate: 0 0; } 50% { translate: -8px 7px; } }
+@keyframes idea-label-b { 0%,100% { translate: 0 0; } 50% { translate: 9px -7px; } }
+@keyframes idea-label-c { 0%,100% { translate: 0 0; } 50% { translate: -5px -10px; } }
+@media (hover: hover) and (pointer: fine) {
+  .hero-image { pointer-events: auto; }
+  .hero-image img {
+    translate: calc(var(--hero-x, 0) * 9px) calc(var(--hero-y, 0) * 7px);
+    transition: translate 250ms ease-out;
+  }
+}
+@media (max-width: 760px) {
+  .equipment-grid { grid-template-columns: 1fr; gap: 10px; }
+  .equipment-card { min-height: 0; }
+  .equipment-subtitle { font-size: 23px; line-height: 1.3; margin-top: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .idea-art > b, .idea-art > span { animation: none; translate: none; }
+  .hero-image img { translate: none; transition: none; }
+}
+
+
+/* Акцентные цвета карточек во всех разделах. */
+.benefits > div:nth-child(3n), .bento > .card:nth-child(3),
+.format-grid > .card:nth-child(3), .result-grid > .result-card:nth-child(2) {
+  background: #437cff; color: #fff;
+}
+.bento > .card:nth-child(3) p, .format-grid > .card:nth-child(3) p,
+.result-grid > .result-card:nth-child(2) p,
+.result-grid > .result-card:nth-child(2) .label { color: #fff; }
+.benefits > div:nth-child(3n + 2), .bento > .card:nth-child(2),
+.format-grid > .card:nth-child(2) { background: #f1f2f3; }
+.module:nth-child(3n + 2), .faq details:nth-child(3n + 2) { background: #f1f2f3; }
+.module:nth-child(3n), .faq details:nth-child(3n) { background: #f1f2f3; }
+.result-card.wide { background: #f1f2f3; }
+.stages > .stage:nth-child(2) { background: #f1f2f3; }
+
+/* Бесконечный ряд: два одинаковых набора без разрыва между циклами. */
+.equipment-controls { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 30px 0 16px; font-size: 14px; }
+
+
+.equipment-marquee { overflow: hidden; border-radius: 16px; }
+.equipment-track { display: flex; width: max-content; animation: equipment-drift 95s linear infinite; }
+.equipment-group { display: flex; flex: none; gap: 12px; padding-right: 12px; }
+.equipment-tile { width: 248px; height: 248px; flex: 0 0 248px; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; align-items: flex-start; }
+.equipment-emoji { font-size: 42px; line-height: 1; margin-bottom: 18px; }
+.equipment-kind { font-size: 10px; line-height: 1.4; margin-bottom: 8px; opacity: .8; }
+.equipment-tile h3 { font-size: 21px; line-height: 1.15; letter-spacing: -.4px; text-wrap: balance; }
+.equipment-tile p { font-size: 12px; line-height: 1.5; margin-top: auto; padding-top: 12px; }
+.equipment-tone-0 { background: #f1f2f3; color: #161618; }
+.equipment-tone-1 { background: #437cff; color: #fff; }
+.equipment-tone-2 { background: #f1f2f3; color: #161618; }
+.equipment-tone-3 { background: #161618; color: #fff; }
+
+@keyframes equipment-drift { to { transform: translateX(-50%); } }
+@media (max-width: 760px) {
+  .equipment-tile { width: 220px; height: 220px; flex-basis: 220px; padding: 18px; }
+  .equipment-tile h3 { font-size: 19px; line-height: 1.2; }
+  .equipment-emoji { font-size: 36px; margin-bottom: 12px; }
+  .equipment-controls { align-items: flex-start; flex-direction: column; gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .equipment-track { animation: none; }
+  .equipment-marquee { overflow-x: auto; }
+  .equipment-group[aria-hidden="true"] { display: none; }
+  
+}
+
+
+/* Цвет обозначает необходимость оборудования. */
+.equipment-required { background: var(--blue); color: #fff; }
+.equipment-optional { background: #fff; color: var(--ink); }
+
+/* Точечные акценты по разделам. */
+.result-grid > .result-card:nth-child(2) { background: var(--card); color: var(--ink); }
+.result-grid > .result-card:nth-child(2) p, .result-grid > .result-card:nth-child(2) .label { color: var(--muted); }
+.result-grid > .result-card.wide { background: var(--blue); color: #fff; }
+.result-grid > .result-card.wide p, .result-grid > .result-card.wide .label,
+.result-grid > .result-card.wide .caption { color: #fff; }
+.future-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 36px; }
+.future-grid .card { min-width: 0; display: flex; flex-direction: column; align-items: stretch; }
+.future-grid .card .index {
+  display: block;
+  width: auto;
+  height: auto;
+  min-height: 18px;
+  padding: 0;
+  margin: 0 0 24px;
+  background: transparent;
+  border-radius: 0;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: .7px;
+  text-align: left;
+  color: var(--muted);
+}
+.future-grid .card:nth-child(2) .index, .future-grid .card:nth-child(7) .index { color: #fff; }
+.future-grid .card h3 { margin: 0 0 16px; }
+.future-grid .card p { max-width: 56ch; line-height: 1.6; }
+.future-grid .card .caption { margin-top: 14px; }
+.future-grid .card:nth-child(2), .future-grid .card:nth-child(7) { background: var(--blue); color: #fff; }
+.future-grid .card:nth-child(2) p, .future-grid .card:nth-child(7) p { color: #fff; }
+.future-wide { grid-column: 1 / -1; }
+.future-note { margin-top: 20px; max-width: 90ch; }
+@media (max-width: 760px) { .future-grid { grid-template-columns: 1fr; } }
+
+/* Тёмный фон блока этапов. */
+#path {
+  margin-top: 96px;
+  padding: 52px 32px 36px;
+  border-radius: 24px;
+  background: var(--ink);
+  color: #fff;
+}
+#path > .eyebrow, #path > .caption { color: #c3c3c5; }
+#path .stage { color: var(--ink); }
+#path .stage.blue { color: #fff; }
+@media (max-width: 760px) {
+  #path { margin-top: 64px; padding: 32px 18px 26px; border-radius: 18px; }
+}
+
+/* Будущие возможности: две строки закрытых, но читаемых карточек. */
+#future {
+  margin-top: 96px;
+  padding: 52px 32px 36px;
+  border-radius: 24px;
+  background: var(--ink);
+  color: #fff;
+}
+#future .eyebrow, #future .lead, #future .future-note { color: #c3c3c5; }
+#future h2 { max-width: 22ch; margin: 0 auto; }
+#future .lead { max-width: 70ch; }
+.future-hint { font-size: 12px; line-height: 1.5; color: #c3c3c5; margin-top: 30px; }
+.future-scroll { overflow-x: auto; padding: 12px 0; scrollbar-width: thin; scrollbar-color: #64666b #232326; }
+#future .future-grid {
+  grid-template-columns: repeat(4, minmax(230px, 1fr));
+  grid-template-rows: repeat(2, auto);
+  min-width: 956px;
+  gap: 12px;
+  margin-top: 0;
+}
+#future .future-grid .card {
+  background: #232326;
+  color: #fff;
+  border: 1px dashed #64666b;
+  min-height: 360px;
+  padding: 24px;
+  border-radius: 18px;
+}
+#future .future-grid .card.future-priority {
+  background: var(--blue);
+  border: 1px solid #fff;
+}
+#future .future-wide { grid-column: span 2; }
+.future-status { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 26px; color: #c3c3c5; }
+.future-status span { font-size: 10px; letter-spacing: .5px; text-transform: uppercase; }
+#future .future-priority .future-status { color: #fff; }
+.future-lock { flex: none; }
+#future .future-grid .card .index { color: #c3c3c5; font-size: 10px; margin-bottom: 14px; }
+#future .future-grid .future-priority .index { color: #fff; }
+#future .future-grid .card h3 { font-size: 24px; line-height: 1.2; letter-spacing: -.4px; margin-bottom: 18px; text-wrap: balance; }
+#future .future-grid .card p { color: #ddd; font-size: 14px; line-height: 1.6; }
+#future .future-grid .future-priority p { color: #fff; }
+#future .future-grid .card .caption { font-size: 11px; color: #c3c3c5; margin-top: auto; padding-top: 18px; }
+@media (max-width: 760px) {
+  #future { margin-top: 64px; padding: 32px 18px 26px; border-radius: 18px; }
+  #future .future-grid { grid-template-columns: repeat(4, 240px); min-width: 996px; }
+  #future .future-grid .card { padding: 22px; min-height: 370px; }
+  #future .future-grid .card h3 { font-size: 23px; }
+  .future-hint:after { content: ' · Листайте вправо →'; }
+}
+
+
+/* Единая плавность: появление не отменяет переходы при наведении. */
+:is(.stage, .card, .result-card, .benefits > div, .module, .faq details, .equipment-tile),
+:is(.stage, .card, .result-card, .benefits > div, .module, .faq details).reveal-pending {
+  transition: transform 420ms cubic-bezier(.22, 1, .36, 1),
+              box-shadow 420ms cubic-bezier(.22, 1, .36, 1),
+              background-color 350ms ease, color 350ms ease,
+              opacity 700ms ease, translate 700ms cubic-bezier(.22, 1, .36, 1);
+}
+.reveal-pending { translate: 0 16px; transition: opacity 700ms ease, translate 700ms cubic-bezier(.22, 1, .36, 1); }
+.reveal-pending.is-visible { translate: 0 0; }
+@media (hover: hover) and (pointer: fine) {
+  .stage:hover, .card:hover, .result-card:hover, .benefits > div:hover { transform: translateY(-3px); }
+  .module:hover, .faq details:hover { transform: translateY(-1px); }
+}
+.stage .arrow { transition: transform 420ms cubic-bezier(.22, 1, .36, 1); }
+.idea-art > b { animation-duration: 9s; }
+.idea-art > span:nth-child(1) { animation-duration: 8s; }
+.idea-art > span:nth-child(2) { animation-duration: 10s; }
+.idea-art > span:nth-child(3) { animation-duration: 11s; }
+.equipment-track { backface-visibility: hidden; will-change: transform; }
+@media (prefers-reduced-motion: reduce) {
+  :is(.stage, .card, .result-card, .benefits > div, .module, .faq details, .equipment-tile),
+  :is(.stage, .card, .result-card, .benefits > div, .module, .faq details).reveal-pending,
+  .reveal-pending { transition: none; translate: none; }
+}
+
+/* Звёздочка обязательного оборудования. */
+.equipment-required { position: relative; }
+.equipment-priority-star { position: absolute; top: 16px; right: 18px; font-size: 24px; line-height: 1; color: #fff; }
+
+/* Автор и инициатор на тёмном фоне. */
+.author { background: var(--ink); color: #fff; }
+.author .eyebrow, .author p, .author .caption { color: #c3c3c5; }
+.author h2 { color: #fff; }
