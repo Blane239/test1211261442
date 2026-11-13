@@ -353,3 +353,47 @@ html { scrollbar-gutter: stable; }
 @media (forced-colors: active) {
   :is(.button, .card, .stage, .equipment-tile, .module, .faq details) { border: 1px solid CanvasText; }
 }
+
+/* From Uiverse.io by neerajbaniwal — shine adapted to responsive headings. */
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  :is(h1, h2, h3) {
+    --shine-base: currentColor;
+    --shine-highlight: #919197;
+    background-image: linear-gradient(100deg, var(--shine-base) 0%, var(--shine-base) 40%, var(--shine-highlight) 50%, var(--shine-base) 60%, var(--shine-base) 100%);
+    background-size: 250% 100%;
+    background-position: 100% 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: heading-shine 3s linear infinite;
+  }
+  :is(.hero, .callout, .start, .author, #path, #future, .dark, .blue, .equipment-required, .result-card.wide) :is(h1, h2, h3) { --shine-base: #c3c3c8; --shine-highlight: #fff; }
+  #path .stage:not(.blue) h3 { --shine-base: #161618; --shine-highlight: #919197; }
+}
+@keyframes heading-shine { 0% { background-position: 100% 0; } 60%, 100% { background-position: 0% 0; } }
+.nav-cta { display: inline-flex; align-items: center; }
+.site-icon { overflow: visible; }
+:where(.arrow, .big-mark, .equipment-emoji, .equipment-priority-star, .format-grid .index) { line-height: 1; }
+:where(.arrow, .equipment-emoji, .equipment-priority-star) > .site-icon { display: block; }
+.menu { align-items: center; justify-content: center; }
+.menu .site-icon { inline-size: 24px; block-size: 24px; }
+.close .site-icon { inline-size: 24px; block-size: 24px; }
+.brand-dot { display: inline-block; inline-size: .45em; block-size: .45em; background: currentColor; border-radius: 50%; vertical-align: .1em; }
+.module summary::after, .faq summary::after { content: ''; inline-size: 18px; block-size: 18px; min-inline-size: 18px; background: linear-gradient(currentColor, currentColor) center / 14px 2px no-repeat, linear-gradient(currentColor, currentColor) center / 2px 14px no-repeat; }
+.module[open] summary::after, .faq details[open] summary::after { content: ''; background: linear-gradient(currentColor, currentColor) center / 14px 2px no-repeat; }
+@media (max-width: 760px) {
+  .menu { display: inline-flex; }
+  .button { flex-wrap: nowrap; }
+  .button .site-icon { inline-size: 18px; block-size: 18px; flex: 0 0 18px; }
+  .equipment-emoji { display: inline-flex; inline-size: 36px; block-size: 36px; }
+  .equipment-emoji .site-icon { inline-size: 36px; block-size: 36px; }
+  .equipment-priority-star { inline-size: 22px; block-size: 22px; }
+  .equipment-priority-star .site-icon { inline-size: 22px; block-size: 22px; }
+  .module summary::after { margin-inline-start: 0; }
+  .faq summary::after { margin-inline-start: auto; }
+  .stage { padding-inline-end: 42px; }
+}
+@media (prefers-reduced-motion: reduce), (forced-colors: active) {
+  :is(h1, h2, h3) { background-image: none; -webkit-text-fill-color: currentColor; animation: none; }
+}
+@media print { :is(h1, h2, h3) { background-image: none; -webkit-text-fill-color: currentColor; animation: none; } }
