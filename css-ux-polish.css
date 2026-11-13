@@ -397,3 +397,26 @@ html { scrollbar-gutter: stable; }
   :is(h1, h2, h3) { background-image: none; -webkit-text-fill-color: currentColor; animation: none; }
 }
 @media print { :is(h1, h2, h3) { background-image: none; -webkit-text-fill-color: currentColor; animation: none; } }
+
+/* From Uiverse.io by kennyotsu — scoped rotating words for the workshop. */
+.visually-hidden { position: absolute; inline-size: 1px; block-size: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.merch-word-card { --word-bg: #161618; background: var(--word-bg); border-radius: 12px; margin-block: 20px 28px; max-inline-size: 100%; }
+.merch-word-loader { color: #c3c3c8; font: inherit; font-size: clamp(1.125rem, .9rem + 1vw, 1.5625rem); font-weight: 500; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 .3em; line-height: 1.6; max-inline-size: 100%; }
+.merch-words { display: inline-block; block-size: 1.6em; position: relative; overflow: hidden; min-inline-size: 8ch; }
+.merch-words::after { content: ''; position: absolute; inset: 0; background: linear-gradient(var(--word-bg) 0%, transparent 22%, transparent 78%, var(--word-bg) 100%); pointer-events: none; }
+.merch-word { display: block; block-size: 1.6em; color: #87aeff; animation: merch-word-spin 8s infinite; }
+@keyframes merch-word-spin {
+  0%, 10% { transform: translateY(0); }
+  15%, 30% { transform: translateY(-100%); }
+  35%, 50% { transform: translateY(-200%); }
+  55%, 70% { transform: translateY(-300%); }
+  75%, 100% { transform: translateY(-400%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .merch-words { block-size: auto; overflow: visible; }
+  .merch-words::after { display: none; }
+  .merch-word { display: none; animation: none; transform: none; }
+  .merch-word:first-child { display: block; }
+}
+@media (forced-colors: active) { .merch-word { color: CanvasText; } .merch-words::after { display: none; } }
+@media print { .merch-word { display: none; animation: none; } .merch-word:first-child { display: block; } .merch-words::after { display: none; } }
