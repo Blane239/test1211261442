@@ -80,3 +80,12 @@
 - Navigation 2 and Features 9 source is license gated; no license key available. These are independently authored local adaptations, not installed Pro components.
 - No runtime CDN or remote component dependency. Reduced-motion and no-JS content preserved.
 - Validation: JS syntax; unique IDs, one H1 per page, local asset paths; browser checked 320 px menu/dropdowns and support tabs, desktop layout.
+
+
+## Batch 3 — compact development page
+- Move preparation into a separate centered green section at the bottom. Native accessible progress remains 12%; Minecraft-inspired segmented experience track, percentage at the right end.
+- Replace the long eight-item roadmap with six concise bento cards, based on the supplied 21st.dev bento-grid-01 visual reference. Merge related launch and showcase goals without losing the education, professionals, new techniques or future shop directions.
+- Replace support tabs with five square illustrated cards in a seamless infinite carousel. Local implementation inspired by Features 9; licensed Pro source is still unavailable.
+- Controls: previous, next and pause; pause on hover/focus, swipe pauses after manual movement. Pause when offscreen/background. Reduced-motion uses native horizontal scrolling with no automatic movement. No-JS preserves readable original cards.
+- Changes isolated in css-development.css and js-development.js; preserve the other pages.
+- Validation: JS syntax, IDs, local assets, goal/card counts; browser at 320, 768 and 1440px, no horizontal page overflow or cropped card content; pause/next and reduced-motion checked.
