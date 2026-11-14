@@ -39,3 +39,11 @@
 .development-page .preparation-section{background:#fff;border-radius:28px;padding:36px 40px;margin-top:20px;text-align:center}
 .preparation-section .project-xp{width:100%;margin:0;padding:0;border:0;background:transparent;box-shadow:none}
 @media(max-width:760px){.development-page #future{padding:20px 0 0}#future .future-masthead{grid-template-columns:minmax(0,1fr);gap:8px}#future .future-intro h1{font-size:clamp(32px,8vw,48px)}#future .future-mascot{max-width:400px;justify-self:center}.development-page .preparation-section{padding:28px 20px;border-radius:22px}}
+/* Final development hero: explicit #FBFBFB panel and equal halves. */
+.development-page #future{background:#FBFBFB;border-radius:28px;padding:28px 32px;margin-top:24px}
+#future .future-masthead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:center;min-height:500px}
+#future .future-intro{padding:16px 20px 16px 8px}
+#future .future-mascot{width:100%;max-width:none;justify-self:stretch}
+#future .future-mascot .mascot-video{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:#FBFBFB}
+.development-page .preparation-section{display:block;background:#FBFBFB;border-radius:28px;padding:36px 40px;margin-top:24px;border:1px solid #e8e8e8}
+@media(max-width:760px){.development-page #future{padding:24px 20px;border-radius:22px}#future .future-masthead{grid-template-columns:minmax(0,1fr);min-height:0}#future .future-intro{padding:0}#future .future-mascot{width:100%;max-width:none;margin-top:16px}.development-page .preparation-section{padding:28px 20px;border-radius:22px}}
