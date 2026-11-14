@@ -26,3 +26,6 @@
 #roadmap>.eyebrow,#roadmap>.lead,#roadmap>.roadmap-note{color:#ccc}
 #roadmap>.section-title{color:#fff}
 @media(max-width:760px){.development-page #roadmap{margin-top:28px;padding:28px 18px 24px;border-radius:22px}}
+
+/* Preparation: title, progress, explanatory text. */
+.project-xp .xp-row{margin:22px 0 20px}.project-xp .xp-row+p{margin:0 auto 12px}
