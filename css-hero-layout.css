@@ -35,11 +35,11 @@
 @media (hover: hover) and (pointer: fine) {
   .stage:hover, .card:hover, .result-card:hover, .benefits > div:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 28px #16161814;
+    box-shadow: 0 12px 28px #16161614;
   }
   .module:hover, .faq details:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 22px #1616180d;
+    box-shadow: 0 8px 22px #1616160d;
   }
   .stage .arrow { transition: transform 220ms ease; }
   .stage:hover .arrow { transform: translate(3px, -3px); }
@@ -47,7 +47,7 @@
 .stage:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 4px;
-  box-shadow: 0 12px 28px #16161814;
+  box-shadow: 0 12px 28px #16161614;
 }
 @media (min-width: 761px) and (max-width: 1100px) {
   .hero-image { width: 59%; right: -12px; }
@@ -61,7 +61,7 @@
     overflow: hidden;
     display: block;
     min-height: 620px;
-    background: #161618;
+    background: #161616;
   }
   .hero-content {
     width: 100%;
@@ -91,10 +91,10 @@
     inset: 0;
     z-index: 2;
     pointer-events: none;
-    background: linear-gradient(180deg, #161618 0%, #161618 49%, #161618d9 64%, #16161826 100%);
+    background: linear-gradient(180deg, #161616 0%, #161616 49%, #161616d9 64%, #16161626 100%);
   }
   .hero-actions { padding-top: 120px; position: relative; }
-  .hero-note { background: #161618cc; color: #eee; }
+  .hero-note { background: #161616cc; color: #eee; }
 }
 @media (prefers-reduced-motion: reduce) {
   .stage, .card, .result-card, .benefits > div, .module, .faq details, .stage .arrow {

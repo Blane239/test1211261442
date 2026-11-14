@@ -93,3 +93,7 @@
 
 ## Unified blue — 14 November 2026
 Single canonical blue: #437CFF, defined once as --blue in css-styles.css. All blue accents, hover states, borders, shadows and local SVG illustration fills/strokes use that token. Pale surfaces use color-mix with white or transparency derived from the same token, without independent blue HEX values. Preserve the green preparation/experience bar and neutral colors. Bitmap artwork is unchanged.
+
+
+## Strict palette and layout refinement
+Blue means exactly #437CFF: remove all pale/transparent blue mixes, tinted surfaces and blue gradients across the UI and vector artwork; use white and neutral gray instead. Solid blue on all roadmap cards only on hover/focus. The support carousel has no pause button and no hover/focus/offscreen pause; manual navigation does not stop autoplay. Respect OS reduced-motion. The 12% progress is a minimal full-content-width section immediately above the roadmap, with no background panel and one green fill. This supersedes the prior pale-blue and bottom-progress specifications.
