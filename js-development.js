@@ -17,8 +17,6 @@
   anim.currentTime=(fraction%1)*(span/30*1000);
  }
  function seek(delta){if(!anim)return;const duration=span/30*1000;anim.currentTime=((Number(anim.currentTime)||0)+delta/30*1000+duration)%duration;}
- function move(dir){const step=group.querySelector('article').getBoundingClientRect().width+16;if(reduce.matches)viewport.scrollBy({left:dir*step,behavior:'instant'});else seek(dir*step);}
- root.querySelector('[data-carousel-prev]').addEventListener('click',()=>move(-1));root.querySelector('[data-carousel-next]').addEventListener('click',()=>move(1));
  viewport.addEventListener('pointerdown',e=>{startX=e.clientX;startTime=Number(anim?.currentTime||0);});
  viewport.addEventListener('pointerup',e=>{if(reduce.matches||!anim)return;const dx=e.clientX-startX;if(Math.abs(dx)>25){const duration=span/30*1000;anim.currentTime=(startTime-dx/30*1000+duration)%duration;}});
  reduce.addEventListener('change',configure);

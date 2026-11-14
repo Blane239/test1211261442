@@ -5,7 +5,7 @@
 const course = {
   "title": "Юная мастерская мерча",
   "documentTitle": "Детская мастерская мерча",
-  "age": "13–16 лет",
+  "age": "14–17 лет",
   "group": "до 12 участников",
   "hours": 20,
   "lessonCount": 10,

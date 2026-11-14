@@ -97,3 +97,9 @@ Single canonical blue: #437CFF, defined once as --blue in css-styles.css. All bl
 
 ## Strict palette and layout refinement
 Blue means exactly #437CFF: remove all pale/transparent blue mixes, tinted surfaces and blue gradients across the UI and vector artwork; use white and neutral gray instead. Solid blue on all roadmap cards only on hover/focus. The support carousel has no pause button and no hover/focus/offscreen pause; manual navigation does not stop autoplay. Respect OS reduced-motion. The 12% progress is a minimal full-content-width section immediately above the roadmap, with no background panel and one green fill. This supersedes the prior pale-blue and bottom-progress specifications.
+
+
+## Preparation annotations
+Merge preparation into the white development hero, center its eyebrow, H2 and description. Restore the complete flex row, relative track, full-width native progress reset and separate right-hand 12% label. Remove stale incomplete XP rules. This supersedes the separate background-free preparation block request.
+
+Growth roadmap section uses a dark #161616 background with white heading and readable gray introductory text. Cards remain white with solid #437CFF hover.
