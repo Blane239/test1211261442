@@ -79,8 +79,8 @@ position:relative;
 min-height:700px;
 border-radius:var(--r);
 overflow:hidden;
-background:var(--ink);
-color:var(--card)}
+background:#FBFBFB;
+color:var(--ink)}
 .hero-image{
 position:absolute;
 right:0;

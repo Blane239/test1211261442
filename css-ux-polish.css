@@ -211,3 +211,6 @@ footer.wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;g
 .hero .mascot-video{background:#FBFBFB}
 .hero .button.light{background:var(--blue);color:#fff}
 @media(max-width:760px){.hero{background:#FBFBFB}.hero:after{display:none}}
+
+/* Homepage hero always uses the requested solid light panel. */
+#main>.hero{background:#FBFBFB;color:#161616}#main>.hero .hero-content{background:transparent;color:#161616}#main>.hero::before,#main>.hero::after{display:none}#main>.hero :is(h1,.hero-intro,ul,li,.hero-bottom,.hero-note){color:#161616}
