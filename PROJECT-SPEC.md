@@ -69,3 +69,14 @@
 - Ресурсные ссылки проверены: все того же origin. Проверенные страницы не показали ошибок консоли.
 - Локальная рабочая копия актуального репозитория сохранена на компьютере.
 - Открытое ограничение: пункт 5, точный About-15 требует лицензированного исходника; самостоятельный веер не является оригиналом React Bits Pro.
+
+
+## Batch 2 — 14 November 2026
+- Shared rounded glass navigation with local card dropdowns and mobile menu.
+- Shine restricted to section-title headings; H1 fades, remaining text pulls up including lists and labels.
+- Six white benefits with blue hover; seamless three-phrase ticker.
+- Light development hero, accessible native progress at 12%, eight unique connected milestones.
+- Partner support section: five keyboard-operable tabs, local animated SVG illustrations, progressive enhancement.
+- Navigation 2 and Features 9 source is license gated; no license key available. These are independently authored local adaptations, not installed Pro components.
+- No runtime CDN or remote component dependency. Reduced-motion and no-JS content preserved.
+- Validation: JS syntax; unique IDs, one H1 per page, local asset paths; browser checked 320 px menu/dropdowns and support tabs, desktop layout.
