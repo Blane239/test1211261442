@@ -50,3 +50,10 @@
 
 /* Development title and original video share one #FBFBFB rectangle. */
 .development-page #future{background:#FBFBFB;border-radius:28px}#future .mascot-video{background:#FBFBFB}
+
+/* One visible light rectangle around BOTH heading and original video. */
+.development-page section#future.original-video-panel{display:block;background-color:#FBFBFB;background-image:none;border:1px solid #e8e8e8;border-radius:28px;padding:36px 40px;margin:24px 0;overflow:hidden}
+#future.original-video-panel .future-masthead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0}
+#future.original-video-panel .future-mascot{width:100%;max-width:none}
+#future.original-video-panel .mascot-video{background:#FBFBFB;border-radius:0}
+@media(max-width:760px){.development-page section#future.original-video-panel{padding:28px 20px;border-radius:22px}#future.original-video-panel .future-masthead{grid-template-columns:minmax(0,1fr)}}
