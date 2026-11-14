@@ -241,3 +241,7 @@ footer.wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;g
 @media(max-width:760px){
  #main>.hero .hero-image.hero-mascot{width:50%;height:auto;aspect-ratio:3/4;align-self:center;margin:0 auto}
 }
+/* Preserve complete source frame at every breakpoint. */
+#main>.hero .hero-image.hero-mascot{box-sizing:border-box;padding:10px;overflow:visible}
+#main>.hero .hero-mascot video.mascot-video{object-fit:contain!important;object-position:center!important;width:100%!important;height:100%!important;transform:none!important;clip-path:none!important;border-radius:0!important}
+@media(max-width:760px){#main>.hero .hero-image.hero-mascot{padding:8px}}

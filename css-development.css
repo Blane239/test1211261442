@@ -57,3 +57,6 @@
 #future.original-video-panel .future-mascot{width:100%;max-width:none}
 #future.original-video-panel .mascot-video{background:#FBFBFB;border-radius:0}
 @media(max-width:760px){.development-page section#future.original-video-panel{padding:28px 20px;border-radius:22px}#future.original-video-panel .future-masthead{grid-template-columns:minmax(0,1fr)}}
+/* Complete portrait frame, with safe space around wing motion. */
+#future.original-video-panel .future-mascot{box-sizing:border-box;padding:16px;overflow:visible}
+#future.original-video-panel .future-mascot video.mascot-video{width:100%;height:auto;aspect-ratio:3/4;object-fit:contain!important;object-position:center!important;transform:none!important;clip-path:none!important;border-radius:0!important}
