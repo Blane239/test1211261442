@@ -47,3 +47,6 @@
 #future .future-mascot .mascot-video{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:#FBFBFB}
 .development-page .preparation-section{display:block;background:#FBFBFB;border-radius:28px;padding:36px 40px;margin-top:24px;border:1px solid #e8e8e8}
 @media(max-width:760px){.development-page #future{padding:24px 20px;border-radius:22px}#future .future-masthead{grid-template-columns:minmax(0,1fr);min-height:0}#future .future-intro{padding:0}#future .future-mascot{width:100%;max-width:none;margin-top:16px}.development-page .preparation-section{padding:28px 20px;border-radius:22px}}
+
+/* Development title and original video share one #FBFBFB rectangle. */
+.development-page #future{background:#FBFBFB;border-radius:28px}#future .mascot-video{background:#FBFBFB}

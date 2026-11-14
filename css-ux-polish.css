@@ -201,3 +201,13 @@ footer.wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;g
 
 /* Transparent character: no colored video panel. */
 .mascot-video{background:transparent;border-radius:0}.hero .hero-mascot{overflow:visible}
+
+/* Original hand video on matching requested hero backgrounds. */
+.hero{background:#FBFBFB;color:var(--ink)}
+.hero .hero-content{color:var(--ink)}
+.hero :is(h1,.hero-intro,li,.hero-bottom,.hero-note){color:var(--ink)}
+.hero .tags span{background:#e8e8e8;color:var(--ink)}
+.hero .hero-note{background:transparent}
+.hero .mascot-video{background:#FBFBFB}
+.hero .button.light{background:var(--blue);color:#fff}
+@media(max-width:760px){.hero{background:#FBFBFB}.hero:after{display:none}}
