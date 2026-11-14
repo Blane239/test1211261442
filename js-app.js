@@ -7,7 +7,7 @@ lessons.forEach((lesson,index)=>{
  const detail=document.createElement('details');detail.className='module';detail.open=index===0;
  const summary=document.createElement('summary');
  const number=document.createElement('span');number.className='module-number';number.textContent=String(index+1).padStart(2,'0');
- const name=document.createElement('span');name.className='module-name';name.textContent=lesson[0];
+ const name=document.createElement('h3');name.className='module-name';name.textContent=lesson[0];
  const pill=document.createElement('span');pill.className='pill';pill.textContent=lesson[1]+' · 2 ч';
  summary.append(number,name,pill);
  const content=document.createElement('div');content.className='module-content';
@@ -15,12 +15,7 @@ lessons.forEach((lesson,index)=>{
  const task=document.createElement('div');task.className='module-task';const label=document.createElement('span');label.className='label';label.textContent='ЗАКРЕПЛЕНИЕ В КОНСТРУКТОРЕ';const taskText=document.createElement('p');taskText.textContent=lesson[3];task.append(label,taskText);content.append(body,task);detail.append(summary,content);modules.append(detail);
 });
 
-// МОБИЛЬНОЕ МЕНЮ
-const menu=document.querySelector('.menu');const navigation=document.querySelector('#navigation');
-function closeMenu(){navigation.classList.remove('visible');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Открыть меню')}
-menu.addEventListener('click',()=>{const open=navigation.classList.toggle('visible');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню')});
-navigation.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
-
+// Меню и общие анимации: js-motion.js
 // СКАЧИВАНИЕ ТЕКСТОВОГО ФАЙЛА
 function downloadText(name,content){const blob=new Blob(['\ufeff'+content],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}
 
@@ -34,7 +29,7 @@ document.querySelector('#download').addEventListener('click', () => {
 
 // ОКНО МИНИ-БРИФА
 const dialog=document.querySelector('#idea-dialog');
-['#idea-button','#start-idea'].forEach(selector=>document.querySelector(selector).addEventListener('click',()=>dialog.showModal()));
+['#idea-button','#start-idea'].forEach(selector=>document.querySelector(selector)?.addEventListener('click',()=>dialog.showModal()));
 dialog.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});
 
 // СОХРАНЕНИЕ ЗАПОЛНЕННОГО БРИФА
