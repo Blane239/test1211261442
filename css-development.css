@@ -29,3 +29,13 @@
 
 /* Preparation: title, progress, explanatory text. */
 .project-xp .xp-row{margin:22px 0 20px}.project-xp .xp-row+p{margin:0 auto 12px}
+
+/* Separate introduction with large mascot and white preparation section. */
+.development-page #future{background:transparent;border-radius:0;padding:36px 0 12px;margin-top:16px;text-align:left}
+#future .future-masthead{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+#future .future-intro{margin:0;max-width:none}#future .future-intro h1{text-align:left;margin:16px 0 24px;max-width:18ch;font-size:clamp(34px,4.2vw,60px)}
+#future .future-intro .lead{text-align:left;margin:0;max-width:48ch}
+#future .future-mascot{max-width:600px;width:100%;justify-self:end}
+.development-page .preparation-section{background:#fff;border-radius:28px;padding:36px 40px;margin-top:20px;text-align:center}
+.preparation-section .project-xp{width:100%;margin:0;padding:0;border:0;background:transparent;box-shadow:none}
+@media(max-width:760px){.development-page #future{padding:20px 0 0}#future .future-masthead{grid-template-columns:minmax(0,1fr);gap:8px}#future .future-intro h1{font-size:clamp(32px,8vw,48px)}#future .future-mascot{max-width:400px;justify-self:center}.development-page .preparation-section{padding:28px 20px;border-radius:22px}}

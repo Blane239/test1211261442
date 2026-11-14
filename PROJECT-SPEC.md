@@ -103,3 +103,7 @@ Blue means exactly #437CFF: remove all pale/transparent blue mixes, tinted surfa
 Merge preparation into the white development hero, center its eyebrow, H2 and description. Restore the complete flex row, relative track, full-width native progress reset and separate right-hand 12% label. Remove stale incomplete XP rules. This supersedes the separate background-free preparation block request.
 
 Growth roadmap section uses a dark #161616 background with white heading and readable gray introductory text. Cards remain white with solid #437CFF hover.
+
+
+## Текущее видео маскота
+На главной и странице развития используется mascot-transparent.webm, подготовленный из IMG_2144.mov. Постер — mascot-transparent-poster.png. Фон элемента video прозрачный. Шкала: заголовок подготовки → прогресс 12% → описание.
