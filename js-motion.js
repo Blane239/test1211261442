@@ -44,13 +44,13 @@
  // Semantic text stays in its original element; wrapping never replaces a heading.
  function splitWords(el){if(el.dataset.wordsReady)return;el.dataset.wordsReady='true';const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,{acceptNode(node){return node.nodeValue.trim()&&!node.parentElement.closest('svg,.visually-hidden,.motion-word')?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);let index=0;nodes.forEach(node=>{const frag=document.createDocumentFragment();node.nodeValue.split(/(\s+)/).forEach(token=>{if(!token.trim()){frag.append(document.createTextNode(token));return;}const span=document.createElement('span');span.className='motion-word';span.textContent=token;span.style.setProperty('--word-delay',Math.min(index++*40,650)+'ms');frag.append(span);});node.replaceWith(frag);});}
  function wrapNumbers(el){const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,{acceptNode(node){return /\d/.test(node.nodeValue)&&!node.parentElement.closest('.motion-number,svg')?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);nodes.forEach(node=>{const frag=document.createDocumentFragment();node.nodeValue.split(/(\d+(?:[–.,]\d+)*)/).forEach(token=>{if(/^\d/.test(token)){const span=document.createElement('span');span.className='motion-number';span.textContent=token;frag.append(span);}else frag.append(document.createTextNode(token));});node.replaceWith(frag);});}
- document.querySelectorAll('h2,h3,h4').forEach(wrapNumbers);
- const textTargets=[...document.querySelectorAll('h1,main p:not(.caption):not(.document-fallback),.hero li,.tags span')].filter(el=>!el.closest('.merch-word-card,.sleeve-card,.folder-sheet'));
+ document.querySelectorAll('h2,h3,h4,.eyebrow,.stage-top,.index,.module-number').forEach(wrapNumbers);
+ const textTargets=[...document.querySelectorAll('h1,main p:not(.caption):not(.document-fallback),.hero li,.tags span')].filter(el=>!el.closest('.merch-word-card,.folder-sheet'));
  textTargets.forEach(el=>{splitWords(el);el.classList.add('motion-text');});
  document.querySelectorAll('.button,.text-button,.nav-cta,.back-link').forEach(button=>{
   [...button.childNodes].filter(n=>n.nodeType===Node.TEXT_NODE&&n.nodeValue.trim()).forEach(node=>{const label=document.createElement('span');label.className='button-label';label.textContent=node.nodeValue;node.replaceWith(label);splitWords(label);});button.classList.add('motion-button');
  });
- const cardTargets=[...document.querySelectorAll('.benefits > div,.stage,.result-card,.format-grid .card,.organizer-link,.equipment-tile,.future-grid > article,#modules > details,.document-folder')];
+ const cardTargets=[...document.querySelectorAll('.benefits > div,.stage,.result-card,.format-grid .card,.organizer-link,.equipment-tile,.future-grid > article,#modules > details,.document-folder,.sleeve-deck')];
  cardTargets.forEach((card,index)=>{card.classList.add('motion-card');card.style.setProperty('--motion-delay',(index%3)*75+'ms');});
  const targets=[...textTargets,...cardTargets,...document.querySelectorAll('.motion-number')];
  let io;
