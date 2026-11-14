@@ -214,36 +214,23 @@ footer.wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;g
 
 /* Homepage hero always uses the requested solid light panel. */
 #main>.hero{background:#FBFBFB;color:#161616}#main>.hero .hero-content{background:transparent;color:#161616}#main>.hero::before,#main>.hero::after{display:none}#main>.hero :is(h1,.hero-intro,ul,li,.hero-bottom,.hero-note){color:#161616}
-/* Homepage: video occupies exactly the right half of the hero. */
+
+/* Single definitive homepage mascot layout. No opacity or scroll animation. */
+#main>.hero{background:#FBFBFB;overflow:hidden}
+#main>.hero .hero-image.hero-mascot{opacity:1!important;filter:none!important;backdrop-filter:none!important;animation:none!important;transform:none!important;mask:none!important;-webkit-mask:none!important;background:#FBFBFB;isolation:isolate;margin:0;padding:0;display:block}
+#main>.hero .hero-mascot video.mascot-video{display:block;opacity:1!important;filter:none!important;backdrop-filter:none!important;animation:none!important;transform:none!important;mask:none!important;-webkit-mask:none!important;object-fit:contain;object-position:center;background:#FBFBFB;box-shadow:none;border-radius:0;max-height:none}
+#main>.hero .hero-mascot::before{display:none!important}
+#main>.hero .hero-mascot::after{content:"";position:absolute;left:0;right:0;bottom:0;top:auto;height:10%;display:block;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(251,251,251,0),#FBFBFB);filter:none;backdrop-filter:none;opacity:1}
 @media(min-width:761px){
- #main>.hero .hero-mascot{position:absolute;inset:0 0 0 50%;width:50%;height:100%;margin:0;padding:0;display:block;overflow:hidden;border-radius:0 var(--r) var(--r) 0}
- #main>.hero .hero-mascot .mascot-video{width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:cover;object-position:center;background:#FBFBFB;border-radius:0}
- #main>.hero .hero-content{width:50%;padding-right:24px}
-}
-/* Mobile mascot fades gently into the shared hero background. */
-@media(max-width:760px){
- #main>.hero{background:#FBFBFB;overflow:hidden}
- #main>.hero .hero-mascot{opacity:var(--mascot-scroll-opacity,1);transform:translateY(var(--mascot-scroll-offset,0px));will-change:opacity,transform;mask-image:linear-gradient(to bottom,transparent 0%,#000 12%,#000 76%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 12%,#000 76%,transparent 100%)}
- #main>.hero .hero-mascot .mascot-video{box-shadow:0 12px 32px #0000000a;background:#FBFBFB;border-radius:24px}
-}
-@media(max-width:760px) and (prefers-reduced-motion:reduce){#main>.hero .hero-mascot{opacity:1;transform:none;will-change:auto}}
-/* Reference framing: large mascot right on desktop, above copy on mobile. */
-@media(min-width:761px){
- #main>.hero .hero-mascot{inset:0 0 0 50%;width:50%;height:100%;overflow:hidden}
- #main>.hero .hero-mascot .mascot-video{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.14);transform-origin:50% 50%;border-radius:0;box-shadow:none}
+ #main>.hero .hero-image.hero-mascot{position:absolute;left:52%;right:3%;top:5%;bottom:5%;width:45%;height:90%;overflow:hidden;border-radius:0;aspect-ratio:auto;z-index:1}
+ #main>.hero .hero-mascot video.mascot-video{width:100%;height:100%;aspect-ratio:auto}
+ #main>.hero .hero-content{width:50%;padding-right:20px}
 }
 @media(max-width:760px){
- #main>.hero{display:flex;flex-direction:column;min-height:0;overflow:hidden}
- #main>.hero .hero-mascot{order:-1;position:relative;inset:auto;width:100%;height:auto;aspect-ratio:3/3.5;margin:0;padding:0;overflow:hidden;opacity:var(--mascot-scroll-opacity,1);mask-image:linear-gradient(to bottom,#000 0%,#000 82%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 82%,transparent 100%)}
- #main>.hero .hero-mascot .mascot-video{width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:cover;object-position:center 40%;transform:scale(1.12);border-radius:0;box-shadow:none;background:#FBFBFB}
- #main>.hero .hero-content{width:100%;min-height:0;padding:12px 22px 28px}
- #main>.hero .tags{margin-top:0}
+ #main>.hero{display:flex;flex-direction:column;min-height:0}
+ #main>.hero .hero-image.hero-mascot{position:relative;order:-1;inset:auto;left:auto;right:auto;top:auto;bottom:auto;width:100%;height:auto;aspect-ratio:3/4;overflow:hidden;z-index:1}
+ #main>.hero .hero-mascot video.mascot-video{width:100%;height:100%;aspect-ratio:auto;object-position:center top}
+ #main>.hero .hero-content{width:100%;min-height:0;padding:8px 22px 28px;z-index:2}
+ #main>.hero .hero-actions{padding-top:24px}
  #main>.hero .hero-bottom{position:static;order:2;padding:0 22px 20px;font-size:9px}
 }
-
-/* Corrected mascot framing: whole character, fade confined to the lower edge. */
-#main>.hero .hero-mascot{opacity:1;transform:none;filter:none;will-change:auto;mask-image:none;-webkit-mask-image:none;background:#FBFBFB}
-#main>.hero .hero-mascot::after{content:"";display:block;position:absolute;inset:auto 0 0;height:14%;z-index:2;pointer-events:none;background:linear-gradient(to bottom,rgba(251,251,251,0),#FBFBFB 95%)}
-#main>.hero .hero-mascot .mascot-video{transform:none;filter:none;opacity:1;object-fit:contain;object-position:center;box-shadow:none;border-radius:0;background:#FBFBFB}
-@media(min-width:761px){#main>.hero .hero-mascot{inset:12px 0 12px 50%;width:50%;height:calc(100% - 24px);overflow:hidden}#main>.hero .hero-mascot .mascot-video{width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:contain;transform:none}}
-@media(max-width:760px){#main>.hero .hero-mascot{order:-1;position:relative;inset:auto;width:100%;height:auto;aspect-ratio:3/4;margin:0;overflow:hidden;opacity:1;transform:none;mask-image:none;-webkit-mask-image:none}#main>.hero .hero-mascot .mascot-video{width:100%;height:100%;aspect-ratio:auto;object-fit:contain;object-position:center;transform:none}#main>.hero .hero-mascot::after{height:16%}}
