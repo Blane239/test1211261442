@@ -65,28 +65,3 @@
  reduce.addEventListener('change',()=>{if(reduce.matches){io?.disconnect();targets.forEach(el=>el.classList.remove('is-entering'));morph(target===1);}});
 })();
 
-/* Mobile hero: dissolve the mascot into #FBFBFB as it leaves the viewport. */
-(() => {
- const hero=document.querySelector('#main > .hero');
- const video=hero?.querySelector('.hero-mascot');
- if(!video)return;
- const mobile=matchMedia('(max-width:760px)');
- const reduced=matchMedia('(prefers-reduced-motion:reduce)');
- let queued=false;
- function update(){
-  queued=false;
-  if(!mobile.matches||reduced.matches){video.style.removeProperty('--mascot-scroll-opacity');video.style.removeProperty('--mascot-scroll-offset');return;}
-  const box=video.getBoundingClientRect();
-  const height=innerHeight;
-  // Full visibility while entering; fade when its centre passes the upper half.
-  const centre=box.top+box.height/2;
-  const fade=Math.max(0,Math.min(1,(height*.48-centre)/(height*.4)));
-  video.style.setProperty('--mascot-scroll-opacity',String(1-fade));
-  video.style.setProperty('--mascot-scroll-offset',`${fade*16}px`);
- }
- function schedule(){if(!queued){queued=true;requestAnimationFrame(update);}}
- addEventListener('scroll',schedule,{passive:true});
- addEventListener('resize',schedule,{passive:true});
- mobile.addEventListener('change',schedule);reduced.addEventListener('change',schedule);
- update();
-})();
