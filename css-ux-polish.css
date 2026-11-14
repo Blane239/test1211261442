@@ -117,6 +117,7 @@ footer > a:last-child { display: inline-flex; align-items: center; gap: 8px; }
 @supports selector(body:has(dialog[open])) { body:has(dialog[open]) { overflow: hidden; } }
 /* Shared FadeText and WordPullUp behaviors, adapted to the static website. */
 .motion-word { display: inline-block; }
+.tags .motion-word { background: none; padding: 0; border-radius: 0; font: inherit; line-height: inherit; }
 .motion-number { display: inline-block; }
 .motion-card.is-entering { animation: block-pull-up var(--motion-duration) var(--motion-ease) both; animation-delay: var(--motion-delay,0ms); }
 .motion-text.is-entering .motion-word { animation: word-pull-up 650ms var(--motion-ease) both; animation-delay: var(--word-delay,0ms); }
