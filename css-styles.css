@@ -5,7 +5,7 @@
 --card:#f1f2f3;
 --ink:#161618;
 --muted:#64666b;
---blue:#437cff;
+--blue:#437CFF;
 --r:16px}
 *{
 box-sizing:border-box}
@@ -365,7 +365,7 @@ background:var(--bg);
 padding:22px;
 border-radius:10px}
 .module-task .label{
-color:#437cff}
+color:var(--blue)}
 .module-task p{
 margin:10px 0 0;
 color:var(--ink)}
@@ -497,7 +497,7 @@ transform:rotate(-6deg);
 border:1px solid #16161816}
 .sketches>span:nth-child(2){
 transform:rotate(6deg);
-background:#437cff;
+background:var(--blue);
 color:white}
 .sketches>span:nth-child(3){
 transform:rotate(-3deg)}
@@ -550,7 +550,7 @@ left:62px;
 filter:drop-shadow(0 -1px 0 #bbb7aa)}
 .tote-print{
 margin:44px 26px;
-color:#437cff;
+color:var(--blue);
 font-size:37px;
 line-height:.95;
 letter-spacing:-1.7px}

@@ -89,3 +89,7 @@
 - Controls: previous, next and pause; pause on hover/focus, swipe pauses after manual movement. Pause when offscreen/background. Reduced-motion uses native horizontal scrolling with no automatic movement. No-JS preserves readable original cards.
 - Changes isolated in css-development.css and js-development.js; preserve the other pages.
 - Validation: JS syntax, IDs, local assets, goal/card counts; browser at 320, 768 and 1440px, no horizontal page overflow or cropped card content; pause/next and reduced-motion checked.
+
+
+## Unified blue — 14 November 2026
+Single canonical blue: #437CFF, defined once as --blue in css-styles.css. All blue accents, hover states, borders, shadows and local SVG illustration fills/strokes use that token. Pale surfaces use color-mix with white or transparency derived from the same token, without independent blue HEX values. Preserve the green preparation/experience bar and neutral colors. Bitmap artwork is unchanged.
