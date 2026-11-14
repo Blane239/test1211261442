@@ -1,7 +1,14 @@
-# test1211261442
+# Юная мастерская мерча
 
-Static website. Open index.html.
+Статический сайт проекта. Публикация: GitHub Pages, ветка main, корень репозитория.
 
-Files use prefixes to preserve their purpose: css-, js-, content-, images-, documents-.
-The complete editable project with its original folders is in source.zip.
-Publishing source: main branch, repository root.
+- Главная: index.html
+- Пояснительная записка и документы: explanatory-note.html
+- Планы и оборудование: development.html
+- Единое ТЗ, требования №1–14, рабочий промт и критерии проверки: [PROJECT-SPEC.md](PROJECT-SPEC.md)
+
+Править актуальные файлы корня. source.zip — исторический архив исходной версии, не текущий сайт.
+
+Общие эффекты и адаптация сосредоточены в css-ux-polish.css и js-motion.js. Контент занятий — content-lessons.js. Не добавлять повторные обработчики и конфликтующие стили. Все изображения, SVG, Word и скрипты обслуживаются локально с этого сайта; CDN и внешних runtime-зависимостей нет.
+
+About-15: точный React Bits Pro компонент требует лицензированный исходник/ключ. Сейчас используется самостоятельный локальный веер карточек без пластинки. См. ограничения в ТЗ.
